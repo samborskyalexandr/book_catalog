@@ -66,7 +66,7 @@
                                                 {{ $author->surname . ' ' . $author->name . ' ' . $author->patronymic }} <br>
                                             @endforeach
                                         </td>
-                                        <td>{{ date('d.m.Y', strtotime($book->publication_date)) }}</td>
+                                        <td>{{ $book->publication_date ? date('d.m.Y', strtotime($book->publication_date)) : '' }}</td>
                                         <td>
                                             <button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" data-id="{{ $book->id }}" onclick="editBook(event.target)">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
