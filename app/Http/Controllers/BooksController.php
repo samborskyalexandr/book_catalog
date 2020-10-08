@@ -91,7 +91,7 @@ class BooksController extends Controller
             $authors .= $author->surname . ' ' . $author->name . ' ' . $author->patronymic . '<br>';
         }
 
-        $message = $request->id ? 'Book Updated successfully' : 'Book Created successfully';
+        $message = $bookId ? 'Book Updated successfully' : 'Book Created successfully';
 
         return response()->json([
             'code'=>200,
