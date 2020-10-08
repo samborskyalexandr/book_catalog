@@ -12,14 +12,30 @@ class BooksController extends Controller
     public function index()
     {
         $query = Book::sortable()->with('authors');
-        $name = '';
+        $nameQuery = '';
+        $authorQuery = '';
+
+        if (isset($_GET['author'])) {
+            $authorQuery = $_GET['author'];
+
+            if (!preg_match('//u', $authorQuery)) {
+                $authorQuery = iconv("cp1251","UTF-8", $authorQuery);
+            }
+            $query->whereHas('authors', function ($q) use ($authorQuery) {
+                foreach (explode(" ", $authorQuery) as $condition) {
+                    $q->where('name', 'LIKE', '%' . $condition . '%');
+                    $q->orWhere('surname', 'LIKE', '%' . $condition . '%');
+                    $q->orWhere('patronymic', 'LIKE', '%' . $condition . '%');
+                }
+            });
+        }
 
         if (isset($_GET['name'])) {
-            $name = $_GET['name'];
-            if (!preg_match('//u', $name)) {
-                $name = iconv("cp1251","UTF-8", $name);
+            $nameQuery = $_GET['name'];
+            if (!preg_match('//u', $nameQuery)) {
+                $nameQuery = iconv("cp1251","UTF-8", $nameQuery);
             }
-            $query->where('name', 'LIKE', '%' . $name . '%');
+            $query->where('name', 'LIKE', '%' . $nameQuery . '%');
         }
 
         $books = $query->paginate(15);
@@ -34,7 +50,8 @@ class BooksController extends Controller
         return view('books.list', [
             'books' => $books,
             'authors' => $authorsFullNames,
-            'name' => $name
+            'nameQuery' => $nameQuery,
+            'authorQuery' => $authorQuery
         ]);
     }
 

@@ -168,15 +168,20 @@ $(document).on("keypress","#nameFilter",function(event) {
     getFilterParams(event);
 });
 
+$(document).on("keypress","#authorFilter",function(event) {
+    getFilterParams(event);
+});
+
 function getFilterParams(event) {
     if (event.which == 13) {
         let name = $('#nameFilter').val();
-        filterData(name);
+        let author = $('#authorFilter').val();
+        filterData(name, author);
         event.preventDefault();
     }
 }
 
-function filterData(name) {
-    let _url = "/books?name=" + name;
+function filterData(name, author) {
+    let _url = "/books?name=" + name + "&author=" + author;
     window.location.replace(_url);
 }

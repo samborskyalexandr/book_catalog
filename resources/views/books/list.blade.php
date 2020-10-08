@@ -33,14 +33,17 @@
                                 <th width="15%">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="mr-2 w-50">@sortablelink('name')</div>
-                                        <input type="text" class="form-control w-50" id="nameFilter" name="nameFilter" placeholder="" value="{{ $name }}">
+                                        <input type="text" class="form-control w-50" id="nameFilter" name="nameFilter" placeholder="" value="{{ $nameQuery }}">
                                     </div>
                                 </th>
-                                <th width="25%">
+                                <th width="20%">
                                     Description
                                 </th>
-                                <th width="10%">
-                                    Authors
+                                <th width="15%">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="mr-2 w-50">Authors</div>
+                                        <input type="text" class="form-control w-50" id="authorFilter" name="authorFilter" placeholder="" value="{{ $authorQuery }}">
+                                    </div>
                                 </th>
                                 <th width="10%">
                                     Publication Date

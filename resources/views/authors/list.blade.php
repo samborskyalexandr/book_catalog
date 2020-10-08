@@ -27,13 +27,13 @@
                                         <th width="27%">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="mr-2 w-50">@sortablelink('surname')</div>
-                                                <input type="text" class="form-control w-50" id="surnameFilter" name="surnameFilter" placeholder="" value="{{ $surname }}">
+                                                <input type="text" class="form-control w-50" id="surnameFilter" name="surnameFilter" placeholder="" value="{{ $surnameQuery }}">
                                             </div>
                                         </th>
                                         <th width="27%">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="mr-2 w-50">Name</div>
-                                                <input type="text" class="form-control w-50" id="nameFilter" name="nameFilter" placeholder="" value="{{ $name }}">
+                                                <input type="text" class="form-control w-50" id="nameFilter" name="nameFilter" placeholder="" value="{{ $nameQuery }}">
                                             </div>
                                         </th>
                                         <th width="27%">

@@ -12,28 +12,28 @@ class AuthorsController extends Controller
     public function index()
     {
         $query = Author::sortable();
-        $name = '';
-        $surname = '';
+        $nameQuery = '';
+        $surnameQuery = '';
 
         if (isset($_GET['name'])) {
-            $name = $_GET['name'];
-            if (!preg_match('//u', $name)) {
-                $name = iconv("cp1251","UTF-8", $name);
+            $nameQuery = $_GET['name'];
+            if (!preg_match('//u', $nameQuery)) {
+                $nameQuery = iconv("cp1251","UTF-8", $nameQuery);
             }
-            $query->where('name', 'LIKE', '%' . $name . '%');
+            $query->where('name', 'LIKE', '%' . $nameQuery . '%');
         }
 
         if (isset($_GET['surname'])) {
-            $surname = $_GET['surname'];
-            if (!preg_match('//u', $surname)) {
-                $surname = iconv("cp1251","UTF-8", $surname);
+            $surnameQuery = $_GET['surname'];
+            if (!preg_match('//u', $surnameQuery)) {
+                $surnameQuery = iconv("cp1251","UTF-8", $surnameQuery);
             }
-            $query->where('surname', 'LIKE', '%' . $surname . '%');
+            $query->where('surname', 'LIKE', '%' . $surnameQuery . '%');
         }
 
         $authors = $query->paginate(15);
 
-        return view('authors.list', compact('authors', 'name', 'surname'));
+        return view('authors.list', compact('authors', 'nameQuery', 'surnameQuery'));
     }
 
     public function store(Request $request)
