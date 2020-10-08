@@ -90,7 +90,7 @@ class BooksController extends Controller
             $imageSrc = 'storage/book-posters/' . $imageName;
         }
 
-        $book = Book::updateOrCreate(['id' => $request->id], [
+        $book = Book::updateOrCreate(['id' => $request->book_id], [
             'name' => $request->name,
             'description' => $request->description,
             'image_src' => $imageSrc,
