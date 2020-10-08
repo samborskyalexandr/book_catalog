@@ -96,8 +96,8 @@ $(document).on("submit", "#bookForm", function (e) {
                         '<td>' + response.authors + '</td>' +
                         '<td>' + response.book.publication_date + '</td>' +
                         '<td>' +
-                        '<button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" data-id="' + response.book.id + '" onclick="editAuthor(event.target)"><i class="fa fa-pencil" aria-hidden="true"></i></button> ' +
-                        '<button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete" data-id="' + response.book.id + '" onclick="deleteAuthor(event.target)"><i class="fa fa-trash" aria-hidden="true"></i></button>' +
+                        '<button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" data-id="' + response.book.id + '" onclick="editBook(event.target)"><i class="fa fa-pencil" aria-hidden="true"></i></button> ' +
+                        '<button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete" data-id="' + response.book.id + '" onclick="deleteBook(event.target)"><i class="fa fa-trash" aria-hidden="true"></i></button>' +
                         '</td>' +
                         '</tr>');
                 }
