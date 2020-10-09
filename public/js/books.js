@@ -106,6 +106,7 @@ $(document).on("submit", "#bookForm", function (e) {
                 $('.authors-select').val(null).trigger('change');
                 $("#authors").val('');
                 $('#publication_date').val('');
+                $('#poster_preview').attr('src', '');
                 $('#poster').val('');
 
                 $('#book-modal').modal('hide');
